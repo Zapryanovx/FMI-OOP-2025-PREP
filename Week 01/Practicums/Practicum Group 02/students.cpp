@@ -115,19 +115,13 @@ void removeStudent(Course& course, int fn)
 
 void sortByGrades(Course& course)
 {
-	double* grades = new double[course.studentsCount];
-	for (int i = 0; i < course.studentsCount; i++)
-	{
-		grades[i] = course.students[i].avgGrade;
-	}
-
 	for (int i = 0; i < course.studentsCount - 1; i++)
 	{
 		int minGrade = i;
 
 		for (int j = i + 1; j < course.studentsCount; j++)
 		{
-			if (grades[j] <= grades[minGrade])
+			if (course.students[i].avgGrade <= course.students[minGrade].avgGrade)
 			{
 				minGrade = j;
 			}
@@ -135,19 +129,10 @@ void sortByGrades(Course& course)
 
 		if (minGrade != i)
 		{
-			if (grades[minGrade] == grades[i])
-			{
-				if (strcmp(course.students[minGrade].name, course.students[i].name) < 0)
-				{
-					std::swap(course.students[minGrade], course.students[i]);
-					std::swap(grades[minGrade], grades[i]);
-				}
-			}
-
-			else
-			{
+			if (course.students[minGrade].avgGrade < course.students[i].avgGrade 
+				|| strcmp(course.students[minGrade].name, course.students[i].name) < 0)
+			{	
 				std::swap(course.students[minGrade], course.students[i]);
-				std::swap(grades[minGrade], grades[i]);
 			}
 		}
 	}
@@ -166,8 +151,7 @@ void filter(const Course& course, pred criteria)
 	}
 }
 
-
-bool highAchiever(const Student& s) 
+bool highAchiever(const Student& s)
 {
 	return s.avgGrade >= 5.50;
 }
