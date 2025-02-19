@@ -167,7 +167,8 @@ void filter(const Course& course, pred criteria)
 }
 
 
-bool highAchiever(const Student& s) {
+bool highAchiever(const Student& s) 
+{
 	return s.avgGrade >= 5.50;
 }
 
