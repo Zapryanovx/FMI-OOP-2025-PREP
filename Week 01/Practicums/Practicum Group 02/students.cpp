@@ -20,7 +20,7 @@ enum class Major
 
 struct Student
 {
-	char name[CONSTANTS::NAME_SIZE]{};
+	char name[CONSTANTS::NAME_SIZE + 1]{};
 	int fn = 123456;
 	double avgGrade = 0.0;
 	Major major = Major::None;
