@@ -96,7 +96,6 @@ void readTringleArrayFromFile(std::ifstream& inFile, Triangle*& trianglesArr, si
 		trianglesArr[i] = readTriangleFromFile(inFile);
 	}
 
-	inFile.close();
 }
 
 void readTringleArrayFromFile(const char* fileName, Triangle*& triangleArr, size_t& trianglesSize)
@@ -114,6 +113,7 @@ void readTringleArrayFromFile(const char* fileName, Triangle*& triangleArr, size
 	}
 
 	readTringleArrayFromFile(inFile, triangleArr, trianglesSize);
+	inFile.close();
 }
 
 void savePointsToFile(std::ofstream& outFile, const Point* points, size_t pointsSize)
@@ -229,7 +229,7 @@ void sortTriangles(Triangle* triangles, int n)
 	delete[] areas;
 }
 
-void freeTrianglesArr(Triangle*& trianglesArr, size_t& trianglesSize)
+void freeTrianglesArr(Triangle* trianglesArr, size_t& trianglesSize)
 {
 	delete[] trianglesArr;
 	trianglesArr = nullptr;
