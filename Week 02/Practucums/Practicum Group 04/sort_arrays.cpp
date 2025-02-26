@@ -54,7 +54,23 @@ void saveArrToFile(std::ofstream& outFile, const int* arr, size_t size)
 	}
 }
 
-void sortByCriteria(std::ofstream& outFile, int* arr, size_t size, bool(*criteria)(int, int))
+void saveArrToFile(const char* fileName, const int* arr, size_t size)
+{
+	if (!fileName)
+	{
+		return;
+	}
+
+	std::ofstream outFile(fileName);
+	if (!outFile.is_open())
+	{
+		return;
+	}
+
+	saveArrToFile(outFile, arr, size);
+}
+
+void sortByCriteria(int* arr, size_t size, bool(*criteria)(int, int))
 {
 	for (size_t i = 0; i < size - 1; i++)
 	{
@@ -73,7 +89,6 @@ void sortByCriteria(std::ofstream& outFile, int* arr, size_t size, bool(*criteri
 		}
 	}
 
-	saveArrToFile(outFile, arr, size);
 }
 
 void sortByCriteria(const char* fileName, int* arr, size_t size, bool(*predicate)(int, int))
@@ -89,11 +104,11 @@ void sortByCriteria(const char* fileName, int* arr, size_t size, bool(*predicate
 		return;
 	}
 
-	sortByCriteria(outFile, arr, size, predicate);
+	sortByCriteria(arr, size, predicate);
 	outFile.close();
 }
 
-void freeArr(int*& arr, size_t& size)
+void freeArr(int* arr, size_t& size)
 {
 	delete[] arr;
 	arr = nullptr;
@@ -114,9 +129,11 @@ int main()
 
 	const char* ascFileName = "ascending.txt";
 	sortByCriteria(ascFileName, arr, size, ascOrder);
+	saveArrToFile(ascFileName, arr, size);
 
 	const char* descFileName = "descending.txt";
 	sortByCriteria(descFileName, arr, size, descOrder);
+	saveArrToFile(descFileName, arr, size);
 
 	freeArr(arr, size);
 
