@@ -18,7 +18,7 @@ size_t countOccurences(char ch, std::ifstream& inFile)
 		}
 	}
 
-	inFile.close();
+	inFile.seekg(0, std::ios::beg);
 	return count;
 }
 
@@ -35,7 +35,10 @@ size_t countOccurences(char ch, const char* fileName)
 		return 0;
 	}
 
-	return countOccurences(ch, inFile);
+	size_t count = countOccurences(ch, inFile);
+	inFile.close();
+
+	return count;
 }
 
 int main() {
