@@ -136,7 +136,7 @@ bool existOffer(const char* fileName, const char* companyName)
 }
 
 
-void freeAppArr(JobApp*& apps, size_t& n)
+void freeAppArr(JobApp* apps, size_t n)
 {
 	delete[] apps;
 	apps = nullptr;
