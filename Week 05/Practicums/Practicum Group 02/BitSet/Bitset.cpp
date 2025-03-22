@@ -111,7 +111,7 @@ void Bitset::copyFrom(const Bitset& other)
 	bucketsCount = other.bucketsCount;
 	limit = other.limit;
 
-	buckets = new uint8_t[bucketsCount];
+	buckets = new uint8_t[bucketsCount]{};
 	for (size_t i = 0; i < bucketsCount; i++)
 	{
 		buckets[i] = other.buckets[i];
