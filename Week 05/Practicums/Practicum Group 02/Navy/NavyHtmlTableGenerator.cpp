@@ -36,7 +36,13 @@ void NavyHtmlTableGenerator::saveToHtmlTable() const
 void NavyHtmlTableGenerator::saveToHtmlTable(std::ofstream& outFile) const
 {
 	outFile << "<table>" << std::endl;
-	
+	outFile << "    <tr>" << std::endl;
+	outFile << "        <th>Name</th>" << std::endl;
+	outFile << "        <th>Launch Year</th>" << std::endl;
+	outFile << "        <th>Class</th" << std::endl;
+	outFile << "        <th>NumGuns</th>" << std::endl;
+	outFile << "    </tr>" << std::endl;
+
 	size_t size = navy->getSize();
 	for (size_t i = 0; i < size; i++)
 	{
@@ -45,14 +51,14 @@ void NavyHtmlTableGenerator::saveToHtmlTable(std::ofstream& outFile) const
 		outFile << "    </tr>" << std::endl;
 
 	}
-	
+
 	outFile << "</table>" << std::endl;
 }
 
 void NavyHtmlTableGenerator::saveShipToHtmlTable(std::ofstream& outFile, const Ship& ship) const
 {
-	outFile << "        <th>" << ship.getName() << "</th>" << std::endl;
-	outFile << "        <th>" << ship.getLaunched() << "</th>" << std::endl;
-	outFile << "        <th>" << ship.getShipClassStr() << "</th>" << std::endl;
-	outFile << "        <th>" << ship.getNumGuns() << "</th>" << std::endl;
+	outFile << "        <td>" << ship.getName() << "</td>" << std::endl;
+	outFile << "        <td>" << ship.getLaunched() << "</td>" << std::endl;
+	outFile << "        <td>" << ship.getShipClassStr() << "</td>" << std::endl;
+	outFile << "        <td>" << ship.getNumGuns() << "</td>" << std::endl;
 }
