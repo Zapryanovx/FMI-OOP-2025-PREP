@@ -4,6 +4,7 @@
 #include <fstream>
 #pragma warning(disable:4996)
 
+
 class Zoo
 {
 public:
@@ -20,7 +21,6 @@ public:
 	void saveToCSV(const char* fileName) const;
 
 private:
-
 	void setName(const char* name);
 	void setAnimals(size_t capacity);
 
