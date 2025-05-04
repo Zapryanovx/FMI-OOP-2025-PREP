@@ -12,5 +12,6 @@ public:
 
 	virtual void print() const = 0;
 
+	virtual ~IntSet() = default;
 };
 
