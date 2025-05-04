@@ -24,12 +24,10 @@ void SmartThermostat::turnOff() const
 
 void SmartThermostat::printDetails() const
 {
-	std::cout << "---[Smart Thermostat]---" << std::endl
-		<< "[Name]: " << getName().c_str() << std::endl
-		<< "[Maker]: " << getMaker() << std::endl
-		<< "[Price]: " << getPrice() << std::endl
-		<< "[Current Temperature] " << currTemp << std::endl
-		<< "[Goal Temperature] " << goalTemp << std::endl;
+	std::cout << "---[Smart Thermostat]---" << std::endl;
+	Device::printDetails();                 
+	std::cout << "[Current Temperature]: " << currTemp << std::endl
+			  << "[Goal Temperature]: " << goalTemp << std::endl;
 }
 
 Device* SmartThermostat::clone() const
