@@ -3,7 +3,7 @@
 void SmartHome::copyFrom(const SmartHome& other)
 {
 	devices = new Device * [other.capacity] {};
-	for (size_t i = 0; i < size; i++)
+	for (size_t i = 0; i < other.size; i++)
 	{
 		devices[i] = other.devices[i]->clone();
 	}
@@ -95,14 +95,14 @@ SmartHome::~SmartHome()
 	free();
 }
 
-void SmartHome::add(const Device* d)
+void SmartHome::add(Device* d)
 {
 	if (size == capacity)
 	{
 		resize(capacity * 2);
 	}
 
-	devices[size++] = d->clone();
+	devices[size++] = d;
 }
 
 void SmartHome::remove(const MyString& name)
