@@ -4,13 +4,17 @@ FilteredStudentDB::FilteredStudentDB(): StudentDB() {}
 
 void FilteredStudentDB::filter(filtercrit filter)
 {
+	FilteredStudentDB res;
+
 	for (size_t i = 0; i < getSize(); i++)
 	{
-		if (!filter(*getStudents()[i]))
+		if (filter(*getStudents()[i]))
 		{
-			remove(getStudents()[i]->getFn());
+			res.add(*getStudents()[i]);
 		}
 	}
+
+	*this = res;
 }
 
 void FilteredStudentDB::limit(unsigned n)
