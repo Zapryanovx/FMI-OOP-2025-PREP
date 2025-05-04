@@ -19,11 +19,9 @@ void SmartSpeaker::turnOff() const
 
 void SmartSpeaker::printDetails() const
 {
-	std::cout << "---[Smart Speaker]---" << std::endl
-		<< "[Name]: " << getName().c_str() << std::endl
-		<< "[Maker]: " << getMaker() << std::endl
-		<< "[Price]: " << getPrice() << std::endl
-		<< "[Volume] " << volume << std::endl;
+	std::cout << "---[Smart Speaker]---" << std::endl;
+	Device::printDetails();                 
+	std::cout << "[Volume]: " << volume << std::endl;
 }
 
 Device* SmartSpeaker::clone() const
