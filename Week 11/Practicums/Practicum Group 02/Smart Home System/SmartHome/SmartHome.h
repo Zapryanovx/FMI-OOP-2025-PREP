@@ -17,7 +17,7 @@ public:
 
 	~SmartHome();
 
-	void add(const Device* d);
+	void add(Device* d);
 	void remove(const MyString& name);
 	void print() const;
 
