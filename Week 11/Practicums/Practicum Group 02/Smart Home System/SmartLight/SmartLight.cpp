@@ -19,11 +19,9 @@ void SmartLight::turnOff() const
 
 void SmartLight::printDetails() const
 {
-	std::cout << "---[Smart Light]---" << std::endl
-		<< "[Name]: " << getName().c_str() << std::endl
-		<< "[Maker]: " << getMaker() << std::endl
-		<< "[Price]: " << getPrice() << std::endl
-		<< "[Brightness Level] " << brightnessLevel << std::endl;
+	std::cout << "---[Smart Light]---" << std::endl;
+	Device::printDetails();
+	std::cout << "[Brightness Level]: " << brightnessLevel << std::endl;
 }
 
 Device* SmartLight::clone() const
