@@ -18,3 +18,10 @@ double Device::getPrice() const
 {
 	return price;
 }
+
+void Device::printDetails() const    
+{
+	std::cout << "[Name]: " << name << std::endl
+			  << "[Maker]: " << maker << std::endl
+			  << "[Price]: " << price << std::endl;
+}
