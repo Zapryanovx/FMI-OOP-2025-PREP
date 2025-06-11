@@ -19,11 +19,6 @@ GeometricProgression<T>::GeometricProgression(const T& start, const T& q): start
 
 template <typename T>
 T GeometricProgression<T>::getNth(int nth) {
-	T res = start;
-	for (int i = 0; i < nth; i++) {
-		res *= q;
-	}
-	
+	T res = start * std::pow(q, nth);
 	return res;
 }
-
