@@ -7,5 +7,9 @@ const MyString& WorkItem::getTask() const {
 }
 
 void WorkItem::print(size_t level) const {
+	for (size_t i = 0; i < level; i++) {
+		std::cout << " ";
+	}
+
 	std::cout << task.c_str() << std::endl;
 }
