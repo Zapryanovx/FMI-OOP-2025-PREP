@@ -1,7 +1,8 @@
 #include "Dish.h"
 
-Dish::Dish(const MyString* ingredients, size_t size) {
+Dish::Dish(const MyString* ingredients, size_t size, size_t cookTime) {
 	initIngredients(ingredients, size);
+	setCookTime(cookTime);
 }
 
 void Dish::print() const {
@@ -14,6 +15,7 @@ void Dish::print() const {
 		}
 	}
 	std::cout << std::endl;
+	std::cout << "[Cook Time]: " << cookTime << std::endl;
 }
 
 void Dish::initIngredients(const MyString* ingredients, size_t size) {
@@ -26,4 +28,8 @@ void Dish::initIngredients(const MyString* ingredients, size_t size) {
 	}
 
 	this->size = size;
+}
+
+void Dish::setCookTime(size_t cookTime) {
+	this->cookTime = cookTime;
 }

@@ -4,7 +4,7 @@
 class SeafoodDish: virtual public Dish
 {
 public:
-	SeafoodDish(const MyString* ingredients, size_t size, const MyString& seafood);
+	SeafoodDish(const MyString* ingredients, size_t size, size_t cookTime, const MyString& seafood);
 
 	virtual void print() const override;
 

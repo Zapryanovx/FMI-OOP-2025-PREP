@@ -4,7 +4,7 @@
 class MeatDish : virtual public Dish
 {
 public:
-	MeatDish(const MyString* ingredients, size_t size, const MyString& meat);
+	MeatDish(const MyString* ingredients, size_t size, size_t cookTime, const MyString& meat);
 
 	virtual void print() const override;
 

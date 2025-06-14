@@ -1,6 +1,7 @@
 #include "MeatDish.h"
 
-MeatDish::MeatDish(const MyString* ingredients, size_t size, const MyString& meat): Dish(ingredients, size) {
+MeatDish::MeatDish(const MyString* ingredients, size_t size, size_t cookTime, const MyString& meat): 
+	Dish(ingredients, size, cookTime) {
 	setMeat(meat);
 }
 

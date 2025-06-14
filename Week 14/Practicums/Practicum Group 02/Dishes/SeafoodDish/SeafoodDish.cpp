@@ -1,6 +1,7 @@
 #include "SeafoodDish.h"
 
-SeafoodDish::SeafoodDish(const MyString* ingredients, size_t size, const MyString& seafood) : Dish(ingredients, size) {
+SeafoodDish::SeafoodDish(const MyString* ingredients, size_t size, size_t cookTime, const MyString& seafood) : 
+	Dish(ingredients, size, cookTime) {
 	setSeafood(seafood);
 }
 
