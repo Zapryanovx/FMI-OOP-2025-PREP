@@ -32,12 +32,5 @@ void IntersectionOfSets::copySets(const Set* const* sets, size_t size) {
 
 void IntersectionOfSets::moveSets(Set**&& sets, size_t size) {
 	this->size = size;
-	size = 0;
-
-	this->sets = new Set * [this->size] {};
-	for (size_t i = 0; i < this->size; i++) {
-		this->sets[i] = sets[i];
-		sets[i] = nullptr;
-	}
-
+	this->sets = sets;
 }
